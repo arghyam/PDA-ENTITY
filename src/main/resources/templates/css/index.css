@@ -1,0 +1,14 @@
+    body  {
+  background-color: #cccccc;
+}
+.container{
+    position:relative;
+    text-align:center;
+}
+
+.centered {
+    position: absolute;
+    width:400px;
+    top: 30%;
+    left: 35%;
+}
