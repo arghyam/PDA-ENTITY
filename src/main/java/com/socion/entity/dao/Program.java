@@ -14,7 +14,7 @@ import java.util.Date;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Program extends BaseEntity implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotEmpty
@@ -34,6 +34,8 @@ public class Program extends BaseEntity implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
 
+    private boolean hyperlinked;
+    private Integer userLimit;
     private String email;
 
     public Program() {
@@ -107,5 +109,21 @@ public class Program extends BaseEntity implements Serializable {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public boolean isHyperlinked() {
+        return hyperlinked;
+    }
+
+    public void setHyperlinked(boolean hyperlinked) {
+        this.hyperlinked = hyperlinked;
+    }
+
+    public Integer getUserLimit() {
+        return userLimit;
+    }
+
+    public void setUserLimit(Integer userLimit) {
+        this.userLimit = userLimit;
     }
 }

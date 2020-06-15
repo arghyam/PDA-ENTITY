@@ -23,8 +23,6 @@ import java.io.*;
 public class ProfileServiceImpl implements ProfileService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProfileServiceImpl.class);
-    //TODO move profile picture url to props
-    private static final String PROFILE_BACKGROUND_IAMGE = "Dummy profile picture url";
     @Autowired
     AppContext appContext;
 
@@ -41,7 +39,7 @@ public class ProfileServiceImpl implements ProfileService {
         String userId = templateDto.getUserId();
 
         if (photo.length() < 1) {
-            photo = PROFILE_BACKGROUND_IAMGE;
+            photo = appContext.getProfileBackgroundImage();
         }
 
 

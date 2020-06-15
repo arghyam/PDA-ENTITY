@@ -13,7 +13,7 @@ public class Content extends BaseEntity {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotNull
@@ -29,6 +29,10 @@ public class Content extends BaseEntity {
     private String contentUrl;
 
     private boolean active;
+    @NotNull
+    @NotEmpty
+    private String attachment;
+
 
     @NotNull
     @ManyToOne
@@ -94,5 +98,13 @@ public class Content extends BaseEntity {
 
     public void setTopic(Topic topic) {
         this.topic = topic;
+    }
+
+    public String getAttachment() {
+        return attachment;
+    }
+
+    public void setAttachment(String attachment) {
+        this.attachment = attachment;
     }
 }

@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class Telemetry extends BaseEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long eventId;
 
     @NotNull

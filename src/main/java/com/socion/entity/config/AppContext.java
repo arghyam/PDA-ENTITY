@@ -33,6 +33,8 @@ public class AppContext {
     @Value("${client.granttype}")
     private String grantType;
 
+    @Value("${profile.backgraound.image}")
+    private String profileBackgroundImage;
 
     public String getClientId() {
         return clientId;
@@ -254,5 +256,13 @@ public class AppContext {
 
     public void setProfileTemplatePath(String profileTemplatePath) {
         this.profileTemplatePath = profileTemplatePath;
+    }
+
+    public String getProfileBackgroundImage() {
+        return profileBackgroundImage;
+    }
+
+    public void setProfileBackgroundImage(String profileBackgroundImage) {
+        this.profileBackgroundImage = profileBackgroundImage;
     }
 }
