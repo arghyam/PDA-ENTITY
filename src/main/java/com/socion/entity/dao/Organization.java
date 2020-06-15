@@ -1,16 +1,11 @@
 package com.socion.entity.dao;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.Entity;
 import javax.persistence.*;
 import java.util.Set;
 
 
 @Table(schema = "organization")
-@Getter
-@Setter
 @Entity(name = "organization")
 public class Organization {
 
