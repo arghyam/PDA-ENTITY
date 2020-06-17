@@ -34,7 +34,7 @@ public class Program extends BaseEntity implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
 
-    private boolean hyperlinked;
+    private boolean isHyperlinked;
     private Integer userLimit;
     private String email;
 
@@ -111,12 +111,13 @@ public class Program extends BaseEntity implements Serializable {
         this.active = active;
     }
 
+
     public boolean isHyperlinked() {
-        return hyperlinked;
+        return isHyperlinked;
     }
 
     public void setHyperlinked(boolean hyperlinked) {
-        this.hyperlinked = hyperlinked;
+        isHyperlinked = hyperlinked;
     }
 
     public Integer getUserLimit() {

@@ -30,7 +30,7 @@ public class Topic extends BaseEntity implements Serializable {
     @JoinColumn(name = "program_id")
     private Program program;
 
-    private boolean isSessionLinked;
+    private boolean sessionLinked;
 
     private boolean active;
 
@@ -67,11 +67,11 @@ public class Topic extends BaseEntity implements Serializable {
     }
 
     public boolean isSessionLinked() {
-        return isSessionLinked;
+        return sessionLinked;
     }
 
     public void setSessionLinked(boolean sessionLinked) {
-        isSessionLinked = sessionLinked;
+        this.sessionLinked = sessionLinked;
     }
 
     public boolean isActive() {
