@@ -12,8 +12,8 @@ ADD ./templates templates
 
 #RUN gradle clean build -x test
 
-ADD build/libs/socion-entity-0.0.1-SNAPSHOT.jar build/libs/socion-entity-0.0.1-SNAPSHOT.jar
+ADD build/libs/pda-entity-0.0.1-SNAPSHOT.jar build/libs/pda-entity-0.0.1-SNAPSHOT.jar
 
-ENTRYPOINT ["java","-jar", "./build/libs/socion-entity-0.0.1-SNAPSHOT.jar","--basePath","/templates/", "--autoScan", "--server"]
+ENTRYPOINT ["java","-jar", "./build/libs/pda-entity-0.0.1-SNAPSHOT.jar","--basePath","/templates/", "--autoScan", "--server"]
 
 
