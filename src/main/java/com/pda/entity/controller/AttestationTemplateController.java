@@ -92,7 +92,7 @@ public class AttestationTemplateController {
             AmazonS3 amazonS3 = awsConfigService.awsS3Configuration();
             logger.info("Attestation upload into aws starts...");
             awsConfigService.putObjectInAwsS3(responseDTO1.getResponse().toString(), awsAttestationId, amazonS3,ATTESTATION_PATH);
-            String s3BucketUrl = appContext.getAwsS3Url() + "attestation/" + awsAttestationId;
+            String s3BucketUrl = appContext.getAwsS3UrlPrivate() + "attestation/" + awsAttestationId;
             File htmlFile = new File(appContext.getFolderPath() + awsAttestationId + Constant.HTML_FORMAT);
             File pdfFile = new File(appContext.getFolderPath() + awsAttestationId + Constant.PDF_FORMAT);
             File qrcodeFile = new File(appContext.getFolderPath() + awsAttestationId + Constant.PNG_FORMAT);

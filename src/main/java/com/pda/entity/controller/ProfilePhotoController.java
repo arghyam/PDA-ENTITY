@@ -49,7 +49,7 @@ public class ProfilePhotoController {
         try {
             AmazonS3 amazonS3 = awsConfigService.awsS3Configuration();
             awsConfigService.putObjectInAwsS3(responseDTO1.getResponse().toString(), templateDto.getUserId(), amazonS3,PROFILE_PATH);
-            String s3BucketUrl = appContext.getAwsS3Url() + "profile-card/" + templateDto.getUserId();
+            String s3BucketUrl = appContext.getAwsS3UrlPrivate() + "profile-card/" + templateDto.getUserId();
             File htmlFile = new File(appContext.getFolderPath() + templateDto.getUserId() + Constant.HTML_FORMAT);
             File pdfFile = new File(appContext.getFolderPath() + templateDto.getUserId() + Constant.PDF_FORMAT);
             File qrcodeFile = new File(appContext.getFolderPath() + picId + Constant.PNG_FORMAT);
