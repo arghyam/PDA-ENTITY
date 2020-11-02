@@ -4,4 +4,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'socion-entity'
+rootProject.name = 'pda-entity'
