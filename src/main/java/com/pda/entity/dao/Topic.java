@@ -33,20 +33,13 @@ public class Topic extends BaseEntity implements Serializable {
     @Column(name = "is_session_linked")
     private boolean sessionLinked;
 
-        @Column(name = "session_linked")
+    @Column(name = "session_linked")
     private boolean sessionsLinked;
 
     private boolean active;
 
     public long getId() {
         return id;
-    }
-       public boolean isSessionsLinked() {
-        return sessionsLinked;
-    }
-
-    public void setSessionsLinked(boolean sessionsLinked) {
-        this.sessionsLinked = sessionsLinked;
     }
 
     public void setId(long id) {
@@ -83,6 +76,14 @@ public class Topic extends BaseEntity implements Serializable {
 
     public void setSessionLinked(boolean sessionLinked) {
         this.sessionLinked = sessionLinked;
+    }
+
+    public boolean isSessionsLinked() {
+        return sessionsLinked;
+    }
+
+    public void setSessionsLinked(boolean sessionsLinked) {
+        this.sessionsLinked = sessionsLinked;
     }
 
     public boolean isActive() {
