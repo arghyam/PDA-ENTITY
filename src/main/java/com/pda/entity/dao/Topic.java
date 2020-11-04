@@ -30,12 +30,23 @@ public class Topic extends BaseEntity implements Serializable {
     @JoinColumn(name = "program_id")
     private Program program;
 
+    @Column(name = "is_session_linked")
     private boolean sessionLinked;
+
+        @Column(name = "session_linked")
+    private boolean sessionsLinked;
 
     private boolean active;
 
     public long getId() {
         return id;
+    }
+       public boolean isSessionsLinked() {
+        return sessionsLinked;
+    }
+
+    public void setSessionsLinked(boolean sessionsLinked) {
+        this.sessionsLinked = sessionsLinked;
     }
 
     public void setId(long id) {

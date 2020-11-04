@@ -1,6 +1,7 @@
 package com.pda.entity.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import com.pda.entity.dao.Topic;
 import com.pda.entity.dto.*;
@@ -33,7 +34,7 @@ public class TopicController {
     }
 
     @PostMapping(value = "/topic/details")
-    public ResponseDTO getMultipleTopic(@RequestBody TopicIdsDTO topicIds) {
+    public List<Map<String, Object>> getMultipleTopic(@RequestBody TopicIdsDTO topicIds) {
         return topicService.getMultipleTopicDetails(topicIds);
     }
     

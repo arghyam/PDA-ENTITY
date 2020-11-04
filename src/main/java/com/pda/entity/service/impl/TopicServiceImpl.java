@@ -146,7 +146,7 @@ public class TopicServiceImpl implements TopicService {
         return new TopicDetailWithProgramContentDTO(topicDTO, programDTO, contentDTOs,topic.isDeleted());
     }
 
-    public ResponseDTO getMultipleTopicDetails(TopicIdsDTO topicIds){
+    public List<Map<String, Object>> getMultipleTopicDetails(TopicIdsDTO topicIds){
         ResponseDTO responseDTO=new ResponseDTO();
         List<Map<String, Object>> topicInfos = new ArrayList<Map<String, Object>>();
         try{
@@ -160,6 +160,6 @@ public class TopicServiceImpl implements TopicService {
         responseDTO.setMessage("Sucessfully Fetched topic details");
         responseDTO.setResponse(topicInfos);
         responseDTO.setResponseCode(HttpStatus.OK.value());
-        return responseDTO;
+        return topicInfos;
     }
 }

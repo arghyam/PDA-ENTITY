@@ -24,6 +24,10 @@ public class AppContext {
     private String realm;
     @Value("${admin-user-username}")
     private String adminUserName;
+    @Value("${aws-s3-bucket-name-private}")
+    private String awsS3BucketNamePrivate;
+    @Value("${aws-s3-url-private}")
+    private String awsS3UrlPrivate;
 
     @Value("${admin-user-password}")
     private String adminUserpassword;
@@ -264,5 +268,20 @@ public class AppContext {
 
     public void setProfileBackgroundImage(String profileBackgroundImage) {
         this.profileBackgroundImage = profileBackgroundImage;
+    }
+    public String getAwsS3BucketNamePrivate() {
+        return awsS3BucketNamePrivate;
+    }
+
+    public void setAwsS3BucketNamePrivate(String awsS3BucketNamePrivate) {
+        this.awsS3BucketNamePrivate = awsS3BucketNamePrivate;
+    }
+
+    public String getAwsS3UrlPrivate() {
+        return awsS3UrlPrivate;
+    }
+
+    public void setAwsS3UrlPrivate(String awsS3UrlPrivate) {
+        this.awsS3UrlPrivate = awsS3UrlPrivate;
     }
 }

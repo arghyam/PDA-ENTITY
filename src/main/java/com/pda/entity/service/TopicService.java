@@ -4,6 +4,7 @@ import com.pda.entity.dao.Program;
 import com.pda.entity.dao.Topic;
 import com.pda.entity.dto.*;
 import org.springframework.validation.BindingResult;
+import java.util.Map;
 
 import java.util.List;
 
@@ -31,5 +32,5 @@ public interface TopicService {
 
     public TopicDetailWithProgramContentDTO getTopicdetails(Long id, boolean deleted);
 
-    public ResponseDTO getMultipleTopicDetails(TopicIdsDTO topicIds);
+    public List<Map<String, Object>> getMultipleTopicDetails(TopicIdsDTO topicIds);
 }
