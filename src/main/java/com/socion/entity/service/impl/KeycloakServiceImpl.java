@@ -13,6 +13,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import com.socion.entity.utils.Constant;
+import org.keycloak.representations.idm.UserRepresentation;
+import org.springframework.web.bind.annotation.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Response;
+import java.util.List;
 
 @Component
 @Service
@@ -34,7 +40,7 @@ public class KeycloakServiceImpl implements KeycloakService {
         LOGGER.debug("Generating access Token for user : {} ", username);
         try {
             adminAccessTokenResponse = keycloakDao.generateAccessTokenUsingCredentials(appContext.getRealm(), appContext.getAdminUserName(),
-                    appContext.getAdminUserpassword(), appContext.getClientId(), appContext.getGrantType(), null).execute().body();
+                    appContext.getAdminUserpassword(), appContext.getClientId(), appContext.getGrantType(), appContext.getClientSecret()).execute().body();
         } catch (IOException e) {
             LOGGER.error("error logged as", e);
         }

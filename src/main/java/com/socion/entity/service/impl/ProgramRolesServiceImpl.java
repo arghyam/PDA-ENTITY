@@ -1,5 +1,6 @@
 package com.socion.entity.service.impl;
 
+import com.socion.entity.config.AppContext;
 import com.socion.entity.dao.Program;
 import com.socion.entity.dao.ProgramRolePk;
 import com.socion.entity.dao.ProgramRoles;
@@ -9,6 +10,7 @@ import com.socion.entity.exceptions.BadRequestException;
 import com.socion.entity.repository.ProgramRolesRepository;
 import com.socion.entity.service.ProgramRolesService;
 import com.socion.entity.service.ProgramService;
+import com.socion.entity.service.KeycloakService;
 import com.socion.entity.utils.Constant;
 import com.socion.entity.utils.HttpUtils;
 import org.slf4j.Logger;
@@ -17,15 +19,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
+import org.keycloak.representations.idm.UserRepresentation;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ProgramRolesServiceImpl implements ProgramRolesService {
 
     @Autowired
     ProgramRolesRepository programRolesRepository;
+
+    @Autowired
+    KeycloakService keycloakService;
+
+    @Autowired
+    AppContext appContext;
 
     @Autowired
     ProgramService programService;
@@ -55,6 +65,7 @@ public class ProgramRolesServiceImpl implements ProgramRolesService {
         programRolesDTO.getUserIds().forEach(userId -> {
             ProgramRoles programRoles = new ProgramRoles();
             programRoles.setProgram(program);
+	    programRoles.setCreatedBy(userId);
             if (programRolesDTO.getRole().equalsIgnoreCase(Constant.PROGRAM_ADMIN) || programRolesDTO.getRole().equalsIgnoreCase(Constant.CONTENT_ADMIN) || programRolesDTO.getRole().equalsIgnoreCase(Constant.TRAINER)) {
                 programRoles.setId(new ProgramRolePk(userId, program.getId(), programRolesDTO.getRole()));
             } else {

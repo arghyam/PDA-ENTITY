@@ -11,6 +11,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.util.concurrent.TimeUnit;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSession;
 
 @Configuration
 public class ServiceConfiguration {
@@ -23,8 +25,14 @@ public class ServiceConfiguration {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(30L, TimeUnit.SECONDS)
-                .writeTimeout(30L, TimeUnit.SECONDS);
-
+                .writeTimeout(30L, TimeUnit.SECONDS)
+		.hostnameVerifier(new HostnameVerifier() {
+                    @Override
+                    public boolean verify(String hostname, SSLSession session) {
+                        //TODO: Make this more restrictive
+                        return true;
+                    }
+                });
         return httpClient.build();
 
     }

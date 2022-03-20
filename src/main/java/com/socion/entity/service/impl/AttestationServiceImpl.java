@@ -15,12 +15,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.stream.Collectors;
 
 @Service
 @SuppressWarnings("unchecked")
@@ -44,9 +52,8 @@ public class AttestationServiceImpl implements AttestationService {
         LOGGER.info(ATTESTATION_START_MESSAGE , templateDto.getUserId(), templateDto.getUserRole());
         ResponseDTO responseDTO = new ResponseDTO();
 
-        File htmlTemplateFile = getTemplateFile(templateDto.getUserRole());
-
-        String htmlString = FileUtils.readFileToString(htmlTemplateFile, StandardCharsets.UTF_8);
+        
+        String htmlString = getTemplateFile(templateDto.getUserRole());
         String studentName = templateDto.getName();
         String sessionName = templateDto.getSessionName();
         String courseName = templateDto.getProgramName();
@@ -126,12 +133,18 @@ public class AttestationServiceImpl implements AttestationService {
         return responseDTO;
     }
 
-    public File getTemplateFile(String role) {
+    public String getTemplateFile(String role) throws IOException {
+        Resource resource;
         if (role.equalsIgnoreCase(Constant.TRAINEE)) {
-            return new File(appContext.getTranieeAttestationTemplatePath());
+            resource = new ClassPathResource(appContext.getTranieeAttestationTemplatePath());
         } else {
-            return new File(appContext.getMemberAttestationTemplatePath());
+            resource = new ClassPathResource(appContext.getMemberAttestationTemplatePath());
         }
+        InputStream input = resource.getInputStream();
+        return  new BufferedReader(
+                new InputStreamReader(input, StandardCharsets.UTF_8))
+                .lines()
+                .collect(Collectors.joining("\n"));
     }
 
     /**

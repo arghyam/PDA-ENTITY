@@ -16,6 +16,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ClassPathResource;
+import java.nio.charset.StandardCharsets;
+import java.util.stream.Collectors;
 
 import java.io.*;
 
@@ -33,9 +38,19 @@ public class ProfileServiceImpl implements ProfileService {
         ResponseDTO responseDTO = new ResponseDTO();
 
 
-        File htmlTemplateFile = new File(appContext.getProfileTemplatePath());
+        //File htmlTemplateFile = ResourceUtils.getFile("classpath:templates/"+appContext.getProfileTemplatePath());
 
-        String htmlString = FileUtils.readFileToString(htmlTemplateFile, "UTF-8");
+        //String htmlString = FileUtils.readFileToString(htmlTemplateFile, "UTF-8");
+
+	Resource resource = new ClassPathResource("templates/"+appContext.getProfileTemplatePath());
+
+	InputStream input = resource.getInputStream();
+
+	String htmlString = new BufferedReader(
+                new InputStreamReader(input, StandardCharsets.UTF_8))
+                .lines()
+                .collect(Collectors.joining("\n"));
+
         String name = templateDto.getUserName();
         String photo = templateDto.getPhoto();
         String userId = templateDto.getUserId();

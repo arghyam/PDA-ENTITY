@@ -30,6 +30,9 @@ public class AppContext {
     @Value("${keycloak-client-id}")
     private String clientId;
 
+    @Value("${keycloak.credentials.secret}")
+    private String clientSecret;
+
     @Value("${client.granttype}")
     private String grantType;
 
@@ -40,6 +43,14 @@ public class AppContext {
 
     public void setClientId(String clientId) {
         this.clientId = clientId;
+    }
+
+    public String getClientSecret() {
+        return clientSecret;
+    }
+
+    public void setClientSecret(String clientSecret) {
+        this.clientSecret = clientSecret;
     }
 
     public String getGrantType() {
