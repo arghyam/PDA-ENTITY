@@ -2,7 +2,7 @@ FROM gradle:4.10.2-jdk8-alpine
 
 USER root
 
-ENV KEYSTORE_PASS <KEYSTORE_PASS>
+ENV KEYSTORE_PASS
 ADD ./src src
 ADD ./gradle/wrapper gradle/wrapper
 ADD ./build.gradle   build.gradle
