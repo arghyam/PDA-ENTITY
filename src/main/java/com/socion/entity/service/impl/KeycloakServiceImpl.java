@@ -13,6 +13,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+// Adding the keycloak client secret as a parameter for authentication.
+
 import com.socion.entity.utils.Constant;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.web.bind.annotation.ResponseBody;
