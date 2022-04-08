@@ -44,3 +44,4 @@ public class KeycloakServiceImpl implements KeycloakService {
     }
 }
 
+// Adding the keycloak client secret as a parameter for authentication.
