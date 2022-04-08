@@ -256,3 +256,4 @@ public class AppContext {
         this.profileTemplatePath = profileTemplatePath;
     }
 }
+// Adding the client secret as a configurable property while authenticating towards keycloak
