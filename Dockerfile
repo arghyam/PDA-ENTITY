@@ -16,4 +16,5 @@ ADD build/libs/socion-entity-0.0.1-SNAPSHOT.jar build/libs/socion-entity-0.0.1-S
 
 ENTRYPOINT ["java","-jar", "./build/libs/socion-entity-0.0.1-SNAPSHOT.jar","--basePath","/templates/", "--autoScan", "--server"]
 
-
+# This change includes additional configuration to package static email templates that we are using and 
+# adding the SSL certificate for keycloak to JAVA keystore in order to connect to keycloak
