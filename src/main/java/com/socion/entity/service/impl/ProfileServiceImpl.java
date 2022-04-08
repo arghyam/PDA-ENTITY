@@ -114,3 +114,4 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
 }
+// Reading the profile template failed since it couldn’t be accessed at runtime. This change is to fix this.
