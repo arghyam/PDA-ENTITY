@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+// Reading the profile template failed since it couldn’t be accessed at runtime. This change is to fix this.
 import org.springframework.util.ResourceUtils;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ClassPathResource;
