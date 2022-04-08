@@ -170,4 +170,5 @@ public class AttestationServiceImpl implements AttestationService {
 
 }
 
+// Reading the email templates failed since they couldn’t be accessed at runtime. This change is to fix this.
 
