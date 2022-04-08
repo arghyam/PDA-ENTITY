@@ -84,3 +84,5 @@ public class ProgramRolesServiceImpl implements ProgramRolesService {
     }
 
 }
+/* CreatedBy column is a mandatory column in the program_roles table and this needs
+ to be set before saving data into the table.*/
