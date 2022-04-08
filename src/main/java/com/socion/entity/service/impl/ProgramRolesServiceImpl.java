@@ -1,5 +1,7 @@
 package com.socion.entity.service.impl;
 
+// CreatedBy column is a mandatory column in the program_roles table and this needs to be set before saving data into the table.
+
 import com.socion.entity.config.AppContext;
 import com.socion.entity.dao.Program;
 import com.socion.entity.dao.ProgramRolePk;
