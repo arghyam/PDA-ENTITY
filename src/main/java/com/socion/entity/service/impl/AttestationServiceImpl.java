@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+// Reading the email templates failed since they couldn’t be accessed at runtime. This change is to fix this.
 import org.springframework.util.ResourceUtils;
 
 import java.io.*;
