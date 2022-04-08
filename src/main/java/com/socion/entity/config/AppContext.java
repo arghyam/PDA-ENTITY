@@ -29,6 +29,8 @@ public class AppContext {
     private String adminUserpassword;
     @Value("${keycloak-client-id}")
     private String clientId;
+    
+// Adding the client secret as a configurable property while authenticating towards keycloak
 
     @Value("${keycloak.credentials.secret}")
     private String clientSecret;
